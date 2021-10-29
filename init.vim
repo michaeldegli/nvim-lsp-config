@@ -1,55 +1,52 @@
 " >> load plugins
 call plug#begin(stdpath('data') . 'vimplug')
-    Plug 'nvim-lua/plenary.nvim'
-    Plug 'nvim-lua/popup.nvim'
-    Plug 'nvim-telescope/telescope.nvim'
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'kabouzeid/nvim-lspinstall'
-    Plug 'glepnir/lspsaga.nvim'
-    Plug 'hrsh7th/nvim-compe'
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-    Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-
-    Plug 'glepnir/galaxyline.nvim', { 'branch': 'main' }
-    Plug 'kyazdani42/nvim-web-devicons'  " needed for galaxyline icons
-
-    Plug 'NLKNguyen/papercolor-theme'
-    Plug 'nikvdp/neomux'
-
-    Plug 'tpope/vim-ragtag'
-    Plug 'tpope/vim-surround'
-    Plug 'tpope/vim-unimpaired'
-
-    Plug 'tpope/vim-eunuch'
-    Plug 'tpope/vim-fugitive'
-
-    Plug 'tomtom/tcomment_vim'
+  Plug 'altercation/vim-colors-solarized'
+  Plug 'APZelos/blamer.nvim'
+  Plug 'elixir-editors/vim-elixir'
+  Plug 'glepnir/galaxyline.nvim', { 'branch': 'main' }
+  Plug 'glepnir/lspsaga.nvim'
+  Plug 'hrsh7th/nvim-compe'
+  Plug 'kabouzeid/nvim-lspinstall'
+  Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'mhinz/vim-mix-format'
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'nikvdp/neomux'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
+  Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'romgrk/barbar.nvim'
+  Plug 'tomtom/tcomment_vim'
+  Plug 'tpope/vim-eunuch'
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-ragtag'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-unimpaired'
 call plug#end()
 
-
-
-colorscheme PaperColor
+set background=light
+colorscheme solarized
 
 " basic settings
 syntax on
 set number
-set relativenumber
-set ignorecase      " ignore case
-set smartcase     " but don't ignore it, when search string contains uppercase letters
+set ignorecase
+set smartcase
 set nocompatible
-set incsearch        " do incremental searching
+set incsearch
 set visualbell
 set expandtab
-set tabstop=4
+set tabstop=2
 set ruler
 set smartindent
-set shiftwidth=4
+set shiftwidth=2
 set hlsearch
 set virtualedit=all
-set backspace=indent,eol,start " allow backspacing over everything in insert mode
+set backspace=indent,eol,start
 set autoindent
-set mouse=a  " mouse support
-
+set mouse=a
 
 " set leader key to ,
 let g:mapleader=","
@@ -81,14 +78,12 @@ nnoremap <Leader>rg <cmd>lua require'telescope.builtin'.live_grep{}<CR>
 " pick color scheme
 nnoremap <Leader>cs <cmd>lua require'telescope.builtin'.colorscheme{}<CR>
 
-
 " >> setup nerdcomment key bindings
 let g:NERDCreateDefaultMappings = 0
 let g:NERDSpaceDelims = 1
 
 xnoremap <Leader>ci <cmd>call NERDComment('n', 'toggle')<CR>
 nnoremap <Leader>ci <cmd>call NERDComment('n', 'toggle')<CR>
-
 
 " >> Lsp key bindings
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
@@ -105,6 +100,10 @@ nnoremap <silent> gn    <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> ga    <cmd>Lspsaga code_action<CR>
 xnoremap <silent> ga    <cmd>Lspsaga range_code_action<CR>
 nnoremap <silent> gs    <cmd>Lspsaga signature_help<CR>
+
+" >> Easily move between buffers
+nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
+nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
 
 lua <<EOF
 require("lsp")
