@@ -1,33 +1,26 @@
 " >> load plugins
 call plug#begin(stdpath('data') . 'vimplug')
-  Plug 'altercation/vim-colors-solarized'
   Plug 'APZelos/blamer.nvim'
   Plug 'elixir-editors/vim-elixir'
-  Plug 'glepnir/galaxyline.nvim', { 'branch': 'main' }
   Plug 'glepnir/lspsaga.nvim'
   Plug 'hrsh7th/nvim-compe'
   Plug 'kabouzeid/nvim-lspinstall'
-  Plug 'kyazdani42/nvim-web-devicons'
-  Plug 'kyazdani42/nvim-web-devicons'
   Plug 'mhinz/vim-mix-format'
   Plug 'neovim/nvim-lspconfig'
-  Plug 'nikvdp/neomux'
-  Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'nvim-treesitter/nvim-treesitter-textobjects'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  Plug 'romgrk/barbar.nvim'
   Plug 'tomtom/tcomment_vim'
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-ragtag'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
+  Plug 'itchyny/lightline.vim'
 call plug#end()
 
 set background=light
-colorscheme solarized
 
 " basic settings
 syntax on
@@ -36,14 +29,12 @@ set ignorecase
 set smartcase
 set nocompatible
 set incsearch
-set visualbell
 set expandtab
 set tabstop=2
 set ruler
 set smartindent
 set shiftwidth=2
 set hlsearch
-set virtualedit=all
 set backspace=indent,eol,start
 set autoindent
 set mouse=a
@@ -108,6 +99,5 @@ nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :wri
 lua <<EOF
 require("lsp")
 require("treesitter")
-require("statusbar")
 require("completion")
 EOF
