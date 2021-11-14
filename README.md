@@ -56,7 +56,7 @@ If you're configuring neovim for the first time, then do the following:
 
    ```bash 
    mkdir -p ~/.config/nvim
-   git clone https://github.com/nikvdp/nvim-lsp-config/ ~/.config/nvim
+   git clone https://github.com/michaeldegli/nvim-lsp-config/ ~/.config/nvim
    ```
 2. install vim-plug:
 
@@ -65,29 +65,15 @@ If you're configuring neovim for the first time, then do the following:
           https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
    ```
 
-3. Install a [nerdfont](https://github.com/ryanoasis/nerd-fonts) and configure your terminal to use it (otherwise icons will not display correctly)
-
-   On a mac you can install one via, eg: 
-   ```
-   brew tap homebrew/cask-fonts
-   brew install --cask font-victor-mono-nerd-font
-   ```
-   and then select "VictorMono Nerd Font" in your terminal emulator's font config.
-
-   For iTerm2, this means hit `⌘+,` to open up preferences, then go to Profiles
-   -> Text -> Font and use the dropdown to select "VictorMono Nerd Font"
-
-   Linux or Windows pelase follow the instructions provided at the [nerd fonts repository](https://github.com/ryanoasis/nerd-fonts).
-
-4. Install plugins: 
+3. Install plugins: 
 
    ```shell
    nvim '+PlugInstall | qa'
    ```
 
-5. Start neovim: `nvim`
-6. Install LSPs for the languages you care about via eg `:LspInstall python`.
+4. Start neovim: `nvim`
+5. Install LSPs for the languages you care about via eg `:LspInstall elixir`.
    You can use tab completion after typing `:LspInstall ` to see which language
    servers are available
 
-7. Add/customize your keybindings to `~/.config/nvim/init.vim`.
+6. Add/customize your keybindings to `~/.config/nvim/init.vim`.
