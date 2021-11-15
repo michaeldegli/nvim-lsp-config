@@ -1,5 +1,6 @@
 " >> load plugins
 call plug#begin(stdpath('data') . 'vimplug')
+  Plug 'nvim-lua/plenary.nvim'
   Plug 'APZelos/blamer.nvim'
   Plug 'elixir-editors/vim-elixir'
   Plug 'glepnir/lspsaga.nvim'
